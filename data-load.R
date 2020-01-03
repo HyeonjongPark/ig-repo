@@ -6,7 +6,7 @@ library(stringr)
 
 setwd("C:/Users/onycom/Desktop/igaworks/all")
 
-aud = fread("audience_profile.csv" , fill =T)
+aud = fread("audience_profile.csv" , sep="!@#", dec=",", fill= T)
 sub = fread("submission.csv")
 test = fread("test.csv")
 train = fread("train.csv")
@@ -17,12 +17,18 @@ head(aud)
 colnames(aud)
 
 
+## 구분자지정후 로드 가능한지 시험. 20200103
+
+aud = fread("audience_profile.csv" , sep = "auto")
+
+
+
 
 ## sample 100개
 aud_sample_100 = aud[1:100,]
 head(aud_sample_100)
 
-df_100 = data.frame(device_ifa=NA, age=NA, gender=NA, marry=NA, install_pack=NA, cate_code=NA, predicted_house_price=NA, asset_index=NA)
+df_100 = data.table(device_ifa=NA, age=NA, gender=NA, marry=NA, install_pack=NA, cate_code=NA, predicted_house_price=NA, asset_index=NA)
 df_100
 
 
@@ -43,7 +49,7 @@ head(df_100)
 df_100[df_100 == ""] = NA 
 
 
-df_100
+head(df_100)
 
 
 
