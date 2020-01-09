@@ -23,7 +23,6 @@ aud = fread("audience_profile.csv" , sep = "auto")
 
 
 
-
 ## sample 100개
 aud_sample_100 = aud[1:100,]
 head(aud_sample_100)
